@@ -1,5 +1,5 @@
 import axios from "axios";
-const API = "http://localhost:5000" || process.env.REACT_APP_API;
+const API =  process.env.REACT_APP_API  || "http://localhost:5000";
 const DeletePrompt = ({Id , closePrompt}) =>{ // got the Id and Close Prompt func as prop
 // console.log(Id)
     const handleSubmit=(e)=>{  // sending the request Backend to delete the image 

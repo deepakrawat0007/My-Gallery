@@ -5,7 +5,7 @@ import "./home.css";
 import axios from "axios";
 import DeletePrompt from "./prompts/deletePrompt";
 import spinner from "../../Asset/Spinner-0.5s-164px.svg"
-const API = "http://localhost:5000" || process.env.REACT_APP_API;
+const API =  process.env.REACT_APP_API  || "http://localhost:5000";
 
 const HomePage = () => {
     const [loading , setLoading] = useState(true) // for laoding spinner

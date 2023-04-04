@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import spinner from "../../Asset/Spinner-0.5s-164px.svg"
-const API = "http://localhost:5000" || process.env.REACT_APP_API;
+const API =  process.env.REACT_APP_API  || "http://localhost:5000";
 
 const RegisterPage = () =>{
     const navigate = useNavigate("/")
