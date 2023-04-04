@@ -4,14 +4,14 @@ const jwt = require("jsonwebtoken");
 const secret = "HelloUser";
 const bcrypt = require("bcrypt")
 
-router.post("/login" , async(req,res)=>{
+router.post("/login" , async(req,res)=>{  // Login of USer
     try{
         const {email , password} = req.body
         const isUser = await User.findOne({email:email})
         if(!isUser){
             return res.status(400).send("No User Exist With Given MAil-Id")
         }
-        bcrypt.compare(req.body.password, isUser.password, function (err, result) {
+        bcrypt.compare(req.body.password, isUser.password, function (err, result) { //Matching with Encrypted password
             if(err){
                 return res.status(400).send(e.message)
             }
