@@ -1,0 +1,113 @@
+.header{
+    display:flex;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 5px 5px black;
+}
+.material-icons.md-24 { font-size: 36px; }
+.header div:nth-of-type(2) span{
+font-size: 25px;
+font-weight: 400;
+}
+.header div:nth-of-type(2){
+margin-right: 2%;
+}
+.header div:nth-of-type(3){
+    margin-right: auto;
+    display: flex;
+}
+.header div:nth-of-type(3) button{
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.header div input[type="text"]{
+    width: 20vw;
+    height: 5vh;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding-left: 5%;
+}
+.header div:nth-of-type(4) button{
+    cursor:pointer;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 10px;
+    background-color: rgb(49, 182, 49);
+    color: antiquewhite;
+    font-size: 20px;
+    border: 0;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
+}
+.header div:nth-of-type(5){
+    margin-left: 2%;
+}
+.header div:nth-of-type(5) button{
+    border: 2px solid red;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.material-symbols-outlined{
+    color: crimson;
+}
+.prompt{
+position: absolute;
+z-index: 2;
+left: 25%;
+top: 25%;
+}
+
+.figure img {
+    box-shadow: 5px 5px 5px 5px gray;
+    border-radius: 10px;
+    width: 20vw;
+    height: 20vw;
+    cursor: pointer;
+
+  }
+  
+  .figure {
+    margin: 0;
+   position: relative;
+  }
+  
+  .container {
+    padding: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+  }
+  .data-container{
+    display: none;
+    position: absolute;
+    bottom: 1%;
+    color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    font-size:25px;
+}
+.figure:hover .data-container{
+    display: block;
+    text-align: center;
+}
+.data-container .del{
+    text-align :end;
+    
+}
+.data-container .del button{
+    width: 8vw;
+    height: 5vh;
+    font-size: 20px;
+    border: 4px solid crimson;
+    border-radius: 10px;
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 35%;
+}
+.data-container .name{
+    color: black;
+    font-weight: bold;
+}
