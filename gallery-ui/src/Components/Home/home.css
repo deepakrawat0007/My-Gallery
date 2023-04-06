@@ -1,38 +1,50 @@
-.header{
-    display:flex;
+.header {
+    display: flex;
+    position: fixed;
+    z-index: 2;
+    width: 96%;
     padding: 2%;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 5px 5px 5px 5px black;
 }
-.material-icons.md-24 { font-size: 36px; }
-.header div:nth-of-type(2) span{
-font-size: 25px;
-font-weight: 400;
+
+.material-icons.md-24 {
+    font-size: 36px;
 }
-.header div{
+
+.header div:nth-of-type(2) span {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.header div {
     cursor: pointer;
 }
-.header div:nth-of-type(2){
-margin-right: 2%;
+
+.header div:nth-of-type(2) {
+    margin-right: 2%;
 }
-.header div:nth-of-type(3){
+
+.header div:nth-of-type(3) {
     margin-right: auto;
     display: flex;
 }
-.header div:nth-of-type(3) button{
+
+.header div:nth-of-type(3) button {
     border-radius: 100%;
     cursor: pointer;
 }
 
-.header div input[type="text"]{
+.header div input[type="text"] {
     width: 20vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid gray;
     padding-left: 5%;
 }
-.header div:nth-of-type(4) button{
-    cursor:pointer;
+
+.header div:nth-of-type(4) button {
+    cursor: pointer;
     width: 10vw;
     height: 5vh;
     border-radius: 10px;
@@ -42,22 +54,34 @@ margin-right: 2%;
     border: 0;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
 }
-.header div:nth-of-type(5){
+
+.header div:nth-of-type(5) {
     margin-left: 2%;
 }
-.header div:nth-of-type(5) button{
+
+.header div:nth-of-type(5) button {
     border: 2px solid red;
     border-radius: 5px;
     cursor: pointer;
 }
-.material-symbols-outlined{
+
+.material-symbols-outlined {
     color: crimson;
 }
-.prompt{
-position: absolute;
-z-index: 2;
-left: 25%;
-top: 25%;
+
+.header div:nth-of-type(5) button:hover {
+    background-color: red;
+}
+
+.header div:nth-of-type(5) button:hover .material-symbols-outlined {
+    color: white;
+}
+
+.prompt {
+    position: fixed;
+    z-index: 2;
+    left: 25%;
+    top: 25%;
 }
 
 .figure img {
@@ -67,20 +91,24 @@ top: 25%;
     height: 20vw;
     cursor: pointer;
 
-  }
-  
-  .figure {
+}
+
+.figure {
     margin: 0;
-   position: relative;
-  }
-  
-  .container {
-    padding: 5%;
-  display: flex;
-  flex-wrap: wrap;
-  gap:15px;
-  }
-  .data-container{
+    position: relative;
+}
+
+.container {
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.data-container {
     display: none;
     position: absolute;
     bottom: 1%;
@@ -88,17 +116,27 @@ top: 25%;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    font-size:25px;
+    font-size: 25px;
+
 }
-.figure:hover .data-container{
+
+.figure:hover img {
+    transform: scale(1.1);
+}
+
+.figure:hover .data-container {
+    transform: scale(1.1);
     display: block;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.data-container .del{
-    text-align :end;
-    
+
+.data-container .del {
+    text-align: end;
+
 }
-.data-container .del button{
+
+.data-container .del button {
     width: 8vw;
     height: 5vh;
     font-size: 20px;
@@ -108,9 +146,19 @@ top: 25%;
     color: red;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 35%;
+    margin-bottom: 55%;
 }
-.data-container .name{
-    color: black;
+
+.data-container .del button:hover {
+    background-color: red;
+    color: whitesmoke;
+}
+
+.data-container .name {
     font-weight: bold;
+}
+
+#delete:hover {
+    background-color: red;
+    color: white;
 }
