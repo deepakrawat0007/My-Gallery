@@ -50,6 +50,9 @@ const HomePage = () => {
     const handleSearch = () => { // searching for the name of Image
         setSearch(true)
         const filterList = Images.filter(items => items.label.toLowerCase().includes(name.toLowerCase()))
+        if(!filterList.length){
+           return alert("No Result Found")
+        }
         setFilterImage(filterList)
     }
 
@@ -61,7 +64,7 @@ const HomePage = () => {
         setAddPrompt(false)
         setDelPrompt(false)
     }
-    const handleHome = () =>{
+    const handleHome = () =>{ //functions for showing all images after search sort
         setSearch(false)
     }
 

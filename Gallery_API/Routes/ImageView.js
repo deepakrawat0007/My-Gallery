@@ -57,7 +57,9 @@ router.delete("/delete/:id", async (req, res) => { // for deleting the Image
                 })
 
             } else {
-                return res.status(400).send("Invalid Credentials")
+                return res.status(400).json({
+                    message: "Invalid Credentials"
+                })
             }
         })
     } catch (e) {
