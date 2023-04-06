@@ -61,13 +61,16 @@ const HomePage = () => {
         setAddPrompt(false)
         setDelPrompt(false)
     }
+    const handleHome = () =>{
+        setSearch(false)
+    }
 
     return (
         <>
          {loading?<div className="spinner"><img src={spinner} alt="spinner"/></div>:''}
             <div className="header">
-                <div><span class="material-icons md-24">face</span></div>
-                <div><span>{localStorage.getItem("name")}</span></div>
+                <div onClick={handleHome}><span class="material-icons md-24">face</span></div>
+                <div onClick={handleHome}><span>{localStorage.getItem("name")}</span></div>
                 <div><input type="text" placeholder="Search Name" onChange={(e) => setName(e.target.value)} /><button onClick={handleSearch}><span class="material-symbols-outlined">
                     search
                 </span></button></div>
