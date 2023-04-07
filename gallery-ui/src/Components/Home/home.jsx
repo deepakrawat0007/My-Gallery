@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import ToastContext from "./context/ToastContext";
 import AddImagePrompt from "./prompts/AddImagePrompt";
 import "./home.css";
 import axios from "axios";
@@ -8,6 +9,7 @@ import spinner from "../../Asset/Spinner-0.5s-164px.svg"
 const API =  process.env.REACT_APP_API  || "http://localhost:5000";
 
 const HomePage = () => {
+    const {toast} = useContext(ToastContext)      // toast Messages
     const [loading , setLoading] = useState(true) // for laoding spinner
     const [AddPrompt, setAddPrompt] = useState(false) //Add Image Prompt
     const [DelPrompt, setDelPrompt] = useState(false) // Delete Prompt
@@ -27,7 +29,7 @@ const HomePage = () => {
             })
             .catch((e) => {
                 setLoading(false)
-                alert(e.response.data)
+                toast.error(e.response.data)
             })
     }
 
@@ -51,9 +53,12 @@ const HomePage = () => {
         setSearch(true)
         const filterList = Images.filter(items => items.label.toLowerCase().includes(name.toLowerCase()))
         if(!filterList.length){
-           return alert("No Result Found")
-        }
+            setSearch(false)
+           return toast.error("No Result Found")
+        }else{
         setFilterImage(filterList)
+        return toast.success(`${filterList.length} Results Found`)
+        }
     }
 
     const handlePrompt = () => { //setting Propmt true to show the prompt

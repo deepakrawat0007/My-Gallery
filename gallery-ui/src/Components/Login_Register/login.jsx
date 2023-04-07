@@ -1,12 +1,14 @@
 import "./page.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import spinner from "../../Asset/Spinner-0.5s-164px.svg"
+import ToastContext from "../Home/context/ToastContext";
 const API =  process.env.REACT_APP_API  || "http://localhost:5000";
 
 const LoginPage = () =>{
     const navigate = useNavigate("/")
+    const {toast} = useContext(ToastContext)
     const [loading , setLoading] = useState(false) // for laoding spinner
     const [data , setData] = useState({  // for storing form data
         email:"",
@@ -25,14 +27,14 @@ const LoginPage = () =>{
             password:data.password
         })
         .then((res)=>{
-            alert("Login Success")
             setLoading(false)
             localStorage.setItem("token" , res.data.token)
             localStorage.setItem("name",res.data.name)
             navigate("/home")
+            toast.success("Login Success")
         }).catch((e)=>{
             setLoading(false)
-            alert(e.response.data)
+            toast.error(e.response.data)
         })
 
     }

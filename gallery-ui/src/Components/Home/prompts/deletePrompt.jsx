@@ -1,9 +1,11 @@
 import axios from "axios";
-import {useState} from "react";
+import {useState , useContext} from "react";
 import "../home.css"
+import ToastContext from "../context/ToastContext";
 const API =  process.env.REACT_APP_API  || "http://localhost:5000";
 const DeletePrompt = ({Id , closePrompt}) =>{ // got the Id and Close Prompt func as prop
 // console.log(Id)
+const {toast} = useContext(ToastContext)
 const [data , setData] = useState({   //for storing the data
     password:""  
 })
@@ -21,11 +23,11 @@ const handleChange = (e)=>{
             headers: { "authorization": localStorage.getItem("token") }
         })
         .then((res)=>{
-            alert("Success")
+            toast.success("Image Deleted")
             closePrompt()
         }).catch((e)=>{
             // console.log(e.response)
-            alert(e.response.data.message)
+            toast.error(e.response.data.message)
         })
     }
 return(

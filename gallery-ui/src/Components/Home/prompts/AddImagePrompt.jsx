@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState , useContext} from "react";
 import axios from "axios";
+import ToastContext from "../context/ToastContext";
 import spinner from "../../../Asset/Spinner-0.5s-164px.svg"
 const API =  process.env.REACT_APP_API  || "http://localhost:5000";
 
 
 const AddImagePrompt = ({closePrompt}) =>{ // revecive the closePrompt func as a prop
     const [loading , setLoading] = useState(false) // for laoding spinner
+    const {toast} = useContext(ToastContext)
     const [data , setData] = useState({   //for storing the data
         label:"",
         image:""    
@@ -26,11 +28,11 @@ const AddImagePrompt = ({closePrompt}) =>{ // revecive the closePrompt func as a
         },{headers:{"authorization":localStorage.getItem('token')}})
         .then((res)=>{
             setLoading(false)
-            alert("Success")
+            toast.success("Image Added SuccessFully")
             closePrompt()
         }).catch((e)=>{
             setLoading(false)
-            alert(e.response.data.message)
+            toast.error(e.response.data.message)
             // console.log(e.response)
         })
 
